@@ -1,0 +1,10 @@
+<ul id="sortable" class="list-unstyled">
+    <li class="ui-state-default" *ngFor="let todo of pendingTodoList;">
+        <div class="checkbox">
+            <label>
+              <!-- <input type="checkbox" [(ngModel)]="checked"/>{{todo}} -->
+              <input type="checkbox" (change)="modifyTodoCheckList($event,todo)" />{{todo}}
+            </label>
+        </div>
+    </li>
+</ul>
