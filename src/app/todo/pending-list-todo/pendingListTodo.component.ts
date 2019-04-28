@@ -9,10 +9,15 @@ export class pendingListTodoComponent implements OnChanges {
   checkedTodos: string[] = []; 
   checked: boolean = false;
   @Input('newTodo') newTodo: string;
+  @Input() newPendingList: string[];
 
   ngOnChanges(changes: SimpleChanges) {
-    const todoInput = changes['newTodo']['currentValue'];
+    const todoInput = changes['newTodo'] && changes['newTodo']['currentValue'] || '';
     todoInput && this.pendingTodoList.push(todoInput);
+
+    const newPendingTodos = changes['newPendingList'] && changes['newPendingList']['currentValue'] || '';
+    newPendingTodos && this.pendingTodoList.push(...newPendingTodos)
+
   }
   modifyTodoCheckList(event: Event|any, todo:string){
     if(event.target.checked) {
@@ -25,5 +30,8 @@ export class pendingListTodoComponent implements OnChanges {
   removeCheckedTodosFromPendingList() {
     this.pendingTodoList = this.pendingTodoList.filter(todo => this.checkedTodos.indexOf(todo) == -1)
     this.checkedTodos.length = 0;
+  }
+  getPendingTodoList(todoList: string[]) {
+
   }
 }

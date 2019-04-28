@@ -10,11 +10,13 @@ import { createTodoComponent } from './todo/create-todo/createTodo.component';
 import { pendingListTodoComponent } from './todo/pending-list-todo/pendingListTodo.component';
 import { completedTodoComponent } from './todo/completed-todo/completedTodo.component';
 import { TodoService } from './services/todo.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   declarations: [ 
     AppComponent,

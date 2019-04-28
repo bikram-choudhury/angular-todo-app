@@ -10,6 +10,7 @@ import { TodoService } from '../../services/todo.service';
 export class createTodoComponent {
   newTodo: string = '';
   todoTitle: string ='';
+  newPendingTodoListFromServer: string[];
   @Output() fetchPendingTodo = new EventEmitter<string[]>();
   @ViewChild(pendingListTodoComponent) pendingListTodo;
 
@@ -25,6 +26,8 @@ export class createTodoComponent {
   }
   // Starting of services
   fetchTodoListFromServer() {
-    this._todoService.fetchTodoListFromServer();
+    this._todoService.fetchTodoListFromServer().subscribe(newPendingTodos => {
+      this.newPendingTodoListFromServer = JSON.parse(JSON.stringify(newPendingTodos));
+    });
   }
 }
