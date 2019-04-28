@@ -1,13 +1,13 @@
 <div class="todolist not-done">
 	<h1>Todos</h1>
-	<input type="text" class="form-control add-todo" placeholder="Add todo" [(ngModel)]="newTodo" >
+	<input type="text" class="form-control add-todo" placeholder="Add todo" [(ngModel)]="todoTitle" >
   <div class="flex">
     <button id="addTodo" class="btn btn-info" (click)="addTodo()">Add TODO</button>
-    <button id="checkAll" class="btn btn-success" (click)="getCheckedTodoList()" >Mark all as done</button>
+    <button id="markAllAsDone" class="btn btn-success" (click)="getCheckedTodoList()" >Mark all as done</button>
   </div>
   
   <hr>
-  <pending-list-todo></pending-list-todo>
+  <pending-list-todo [newTodo]="newTodo"></pending-list-todo>
   <div class="todo-footer">
       <strong><span class="count-todos"></span></strong> Items Left
   </div>

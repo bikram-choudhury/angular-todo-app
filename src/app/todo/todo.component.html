@@ -5,7 +5,6 @@
             <create-todo (fetchPendingTodo)="handlePendingTodos($event)"></create-todo>
         </div>
         <div class="col-md-6">
-          {{completedTodos}}
             <completed-todo [completedTodos]="completedTodos"></completed-todo>
         </div>
     </div>

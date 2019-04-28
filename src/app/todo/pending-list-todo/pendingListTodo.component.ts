@@ -1,25 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'pending-list-todo',
   templateUrl: './pendingListTodo.component.html'
 })
-export class pendingListTodoComponent {
+export class pendingListTodoComponent implements OnChanges {
   pendingTodoList: string[] = ['Take out the trash', 'Buy bread', 'Teach penguins to fly', 'Learn Angular'];
   checkedTodos: string[] = []; 
   checked: boolean = false;
+  @Input('newTodo') newTodo: string;
 
-  addTodoToCheckList(todo: string){
-    const index = this.checkedTodos.indexOf(todo);
-    if(index > -1){
-      this.checkedTodos.splice(index, 1);
-    }
-    this.checkedTodos.push(todo);
-    console.log(`Clicked todo: ${todo}`);
-    console.log(`Checked todos: ${this.checkedTodos}`);
+  ngOnChanges(changes: SimpleChanges) {
+    // console.log(`ngOnchange: ${JSON.stringify(changes)}`);
+    const todoInput = changes['newTodo']['currentValue'];
+    todoInput && this.pendingTodoList.push(todoInput);
   }
-  modifyTodoCheckList(event: Event, todo:string){
-    // console.log("checkbox event: ", event);
+  modifyTodoCheckList(event: Event|any, todo:string){
     if(event.target.checked) {
       this.checkedTodos.push(todo);
     } else {
@@ -29,7 +25,7 @@ export class pendingListTodoComponent {
     console.log(`Checked todos: ${this.checkedTodos}`);
   }
   removeCheckedTodosFromPendingList() {
-    // this.pendingTodoList = this.pendingTodoList.filter(todo => this.checkedTodos.indexOf(todo) == -1)
-    // this.checkedTodos.length = 0;
+    this.pendingTodoList = this.pendingTodoList.filter(todo => this.checkedTodos.indexOf(todo) == -1)
+    this.checkedTodos.length = 0;
   }
 }

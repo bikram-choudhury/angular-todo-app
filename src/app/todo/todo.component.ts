@@ -8,8 +8,7 @@ export class todoComponent {
   completedTodos: string[];
 
   handlePendingTodos(todos: string[]){
-    console.log(`todos: ${todos}`);
-    this.completedTodos = todos;
+    this.completedTodos = JSON.parse(JSON.stringify(todos));    
     console.log(`completedTodos: ${this.completedTodos}`);
   }
 }

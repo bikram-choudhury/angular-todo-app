@@ -62,7 +62,7 @@ export class AppComponent  {
     callback();
   }
   findDuplicatesEs6 = () => console.log("findDuplicatesEs6: ",this)
-  handleClick(event: Event, templateRef: any) {
+  handleClick(event: Event|any, templateRef: any) {
     console.log("Button clicked", event.target);
     console.log("Button clicked for templateRef", templateRef);
     this.inputValue = `${event.target.innerText} Button clicked`;

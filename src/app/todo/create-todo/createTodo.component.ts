@@ -8,19 +8,18 @@ import { pendingListTodoComponent } from '../pending-list-todo/pendingListTodo.c
 })
 export class createTodoComponent {
   newTodo: string = '';
-  @ViewChild(pendingListTodoComponent) pendingTodoComponent;
+  todoTitle: string ='';
   @Output() fetchPendingTodo = new EventEmitter<string[]>();
+  @ViewChild(pendingListTodoComponent) pendingListTodo;
 
   addTodo() {
-    console.log('todo button clicked: ', this.newTodo);
-    console.log('pendingListTodoComponent: ', this.pendingTodoComponent);
-    if(this.newTodo && this.newTodo.trim()) {
-      this.pendingTodoComponent.pendingTodoList.push(this.newTodo);
-    }
+    this.todoTitle && (this.newTodo = this.todoTitle);
+    this.todoTitle = '';
+    // console.log('todo button clicked: ', this.newTodo);
   }
   getCheckedTodoList() {
-    console.log(`checked pending todos: ${this.pendingTodoComponent.checkedTodos}`);
-    this.fetchPendingTodo.emit(this.pendingTodoComponent.checkedTodos);
-    this.pendingTodoComponent.removeCheckedTodosFromPendingList();
+    // console.log(`fetch pending todo list from child: ${this.pendingListTodo.checkedTodos}`);
+    this.fetchPendingTodo.emit(this.pendingListTodo.checkedTodos);
+    this.pendingListTodo.removeCheckedTodosFromPendingList();
   }
 }
