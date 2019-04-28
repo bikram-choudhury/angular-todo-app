@@ -11,7 +11,6 @@ export class pendingListTodoComponent implements OnChanges {
   @Input('newTodo') newTodo: string;
 
   ngOnChanges(changes: SimpleChanges) {
-    // console.log(`ngOnchange: ${JSON.stringify(changes)}`);
     const todoInput = changes['newTodo']['currentValue'];
     todoInput && this.pendingTodoList.push(todoInput);
   }
@@ -22,7 +21,6 @@ export class pendingListTodoComponent implements OnChanges {
       const index = this.checkedTodos.indexOf(todo);
       this.checkedTodos.splice(index, 1);
     }
-    console.log(`Checked todos: ${this.checkedTodos}`);
   }
   removeCheckedTodosFromPendingList() {
     this.pendingTodoList = this.pendingTodoList.filter(todo => this.checkedTodos.indexOf(todo) == -1)

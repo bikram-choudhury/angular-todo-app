@@ -15,10 +15,8 @@ export class createTodoComponent {
   addTodo() {
     this.todoTitle && (this.newTodo = this.todoTitle);
     this.todoTitle = '';
-    // console.log('todo button clicked: ', this.newTodo);
   }
   getCheckedTodoList() {
-    // console.log(`fetch pending todo list from child: ${this.pendingListTodo.checkedTodos}`);
     this.fetchPendingTodo.emit(this.pendingListTodo.checkedTodos);
     this.pendingListTodo.removeCheckedTodosFromPendingList();
   }
