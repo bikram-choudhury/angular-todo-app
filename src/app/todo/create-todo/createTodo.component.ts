@@ -1,5 +1,6 @@
 import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
 import { pendingListTodoComponent } from '../pending-list-todo/pendingListTodo.component';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'create-todo',
@@ -12,6 +13,8 @@ export class createTodoComponent {
   @Output() fetchPendingTodo = new EventEmitter<string[]>();
   @ViewChild(pendingListTodoComponent) pendingListTodo;
 
+  constructor(private _todoService: TodoService){}
+
   addTodo() {
     this.todoTitle && (this.newTodo = this.todoTitle);
     this.todoTitle = '';
@@ -19,5 +22,9 @@ export class createTodoComponent {
   getCheckedTodoList() {
     this.fetchPendingTodo.emit(this.pendingListTodo.checkedTodos);
     this.pendingListTodo.removeCheckedTodosFromPendingList();
+  }
+  // Starting of services
+  fetchTodoListFromServer() {
+    this._todoService.fetchTodoListFromServer();
   }
 }
