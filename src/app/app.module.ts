@@ -11,6 +11,8 @@ import { pendingListTodoComponent } from './todo/pending-list-todo/pendingListTo
 import { completedTodoComponent } from './todo/completed-todo/completedTodo.component';
 import { TodoService } from './services/todo.service';
 import { HttpClientModule } from '@angular/common/http';
+import { StarDirective } from './directives/star.directive';
+import { ChangeColorDirective } from './directives/change.color.directive';
 
 @NgModule({
   imports: [
@@ -25,7 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
     todoComponent,
     createTodoComponent,
     pendingListTodoComponent,
-    completedTodoComponent
+    completedTodoComponent,
+    StarDirective,
+    ChangeColorDirective
   ],
   providers: [
     TodoService

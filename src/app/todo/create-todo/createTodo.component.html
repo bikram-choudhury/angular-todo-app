@@ -1,6 +1,13 @@
 <div class="todolist not-done">
 	<h1>Todos</h1>
-	<input type="text" class="form-control add-todo" placeholder="Add todo" [(ngModel)]="todoTitle" >
+  <input type="text" class="form-control add-todo" placeholder="Add todo" [(ngModel)]="todoTitle" >
+  <br />
+	<div class="input-group">
+    <span class="input-group-addon">
+      Add <span class="glyphicon glyphicon glyphicon-star" aria-hidden="true"></span> Out of 5
+    </span>	
+    <input type="number" class="form-control" aria-label="Stars" [(ngModel)]="stars" />
+    </div>
   <div class="flex">
     <button id="addTodo" class="btn btn-info" (click)="addTodo()">Add TODO</button>
     <button id="markAllAsDone" class="btn btn-success" (click)="getCheckedTodoList()" >Mark all as done</button>
@@ -8,7 +15,7 @@
   </div>
   
   <hr>
-  <pending-list-todo [newTodo]="newTodo" [newPendingList]="newPendingTodoListFromServer"></pending-list-todo>
+  <pending-list-todo [newTodo]="newTodo" [newPendingList]="newPendingTodoListFromServer" [stars]="stars"></pending-list-todo>
   <div class="todo-footer">
       <strong><span class="count-todos"></span></strong> Items Left
   </div>

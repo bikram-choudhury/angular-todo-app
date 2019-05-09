@@ -10,6 +10,7 @@ export class pendingListTodoComponent implements OnChanges {
   checked: boolean = false;
   @Input('newTodo') newTodo: string;
   @Input() newPendingList: string[];
+  @Input() stars: number;
 
   ngOnChanges(changes: SimpleChanges) {
     const todoInput = changes['newTodo'] && changes['newTodo']['currentValue'] || '';

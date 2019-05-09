@@ -10,6 +10,8 @@ import { TodoService } from '../../services/todo.service';
 export class createTodoComponent {
   newTodo: string = '';
   todoTitle: string ='';
+  stars: number = 0;
+
   newPendingTodoListFromServer: string[];
   @Output() fetchPendingTodo = new EventEmitter<string[]>();
   @ViewChild(pendingListTodoComponent) pendingListTodo;
@@ -17,6 +19,10 @@ export class createTodoComponent {
   constructor(private _todoService: TodoService){}
 
   addTodo() {
+    if(this.stars > 5) {
+      alert('stars can\'t be more than 5');
+      return ;
+    }
     this.todoTitle && (this.newTodo = this.todoTitle);
     this.todoTitle = '';
   }
