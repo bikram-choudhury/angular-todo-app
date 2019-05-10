@@ -13,6 +13,9 @@ import { TodoService } from './services/todo.service';
 import { HttpClientModule } from '@angular/common/http';
 import { StarDirective } from './directives/star.directive';
 import { ChangeColorDirective } from './directives/change.color.directive';
+import { PipesComponent } from './pipes/pipes.component';
+import { PowerPipe } from './power.pipe';
+import { ShowEvenIndexPipe } from './even-index.pipe';
 
 @NgModule({
   imports: [
@@ -29,7 +32,10 @@ import { ChangeColorDirective } from './directives/change.color.directive';
     pendingListTodoComponent,
     completedTodoComponent,
     StarDirective,
-    ChangeColorDirective
+    ChangeColorDirective,
+    PipesComponent,
+    PowerPipe,
+    ShowEvenIndexPipe
   ],
   providers: [
     TodoService

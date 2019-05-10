@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<section class="">
+  <div class="container">
+      <h4>Built in pipes</h4>
+      <div class="row">
+        <div class="col-sm">
+            <h5><u>currency pipes</u></h5>
+            <p>Price : {{price}}</p>
+            <p>Price : {{price | currency: 'INR'}}</p>
+            <p>Price : {{price | currency: 'EUR'}}</p>
+            <p>Price : {{price | currency: 'CAD'}}</p>
+            <p>Price : {{price | currency: 'USD'}}</p>
+        </div>
+        <div class="col-sm">
+            <h5><u>date pipes</u></h5>
+            <p>Date: {{date}}</p>
+            <p>Date: {{date | date: 'medium'}}</p>
+            <p>Date: {{date | date: 'yyyy'}}</p>
+            <p>Date: {{date | date: 'MM'}}</p>
+            <p>Date: {{date | date: 'MMM'}}</p>
+            <p>Date: {{date | date: 'h:m'}}</p>
+            <p>Date: {{date | date: 'h:m A'}}</p>
+        </div>
+        <div class="col-sm">
+            <h5><u>string pipes</u></h5>
+            <p>Text: {{text}}</p>
+            <p>Text: {{text | uppercase}}</p>
+            <p>Text: {{text | lowercase}}</p>
+            <p>Text: {{text | slice:1:4}}</p>
+        </div>
+        <div class="col-sm">
+            <h5><u>custom pipes</u></h5>
+            <p>Power(2): {{numberForPower}}</p>
+            <p>Power(2 | 5): {{numberForPower | power: 5}}</p>
+            <p>Power(2 | 2,2): {{numberForPower | power: 2:2}}</p>
+            <p>Power(2 | 2,3,5): {{numberForPower | power: 2:3:5}}</p>
+            <hr />
+            <p>courses: {{courses}} </p>
+            <p>courses: {{courses | evenIndex}} </p>
+            <p>courses: {{courses | evenIndex | evenIndex}} </p>
+            <p>courses: {{rollnumber | evenIndex}} </p>
+
+        </div>
+      </div>
+    </div>
+
+</section>
