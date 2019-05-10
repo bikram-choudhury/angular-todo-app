@@ -13,6 +13,7 @@ export class createTodoComponent {
   stars: number = 0;
 
   newPendingTodoListFromServer: string[];
+  newTodosFromServer: string[];
   @Output() fetchPendingTodo = new EventEmitter<string[]>();
   @ViewChild(pendingListTodoComponent) pendingListTodo;
 
@@ -35,5 +36,11 @@ export class createTodoComponent {
     this._todoService.fetchTodoListFromServer().subscribe(newPendingTodos => {
       this.newPendingTodoListFromServer = JSON.parse(JSON.stringify(newPendingTodos));
     });
+  }
+
+  fetchTodoListFromServerAgain() {
+    this._todoService.fetchTodoListFromServer().subscribe(newTodoResponse => {
+      this.newTodosFromServer = JSON.parse(JSON.stringify(newTodoResponse));
+    })
   }
 }

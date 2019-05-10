@@ -12,12 +12,17 @@ export class pendingListTodoComponent implements OnChanges {
   @Input() newPendingList: string[];
   @Input() stars: number;
 
+  @Input() newTodosInputFromServer: string[];
+
   ngOnChanges(changes: SimpleChanges) {
     const todoInput = changes['newTodo'] && changes['newTodo']['currentValue'] || '';
     todoInput && this.pendingTodoList.push(todoInput);
 
     const newPendingTodos = changes['newPendingList'] && changes['newPendingList']['currentValue'] || '';
-    newPendingTodos && this.pendingTodoList.push(...newPendingTodos)
+    newPendingTodos && this.pendingTodoList.push(...newPendingTodos);
+
+    // console.log(this.newTodosInputFromServer)
+    this.newTodosInputFromServer && this.pendingTodoList.push(...this.newTodosInputFromServer);
 
   }
   modifyTodoCheckList(event: Event|any, todo:string){

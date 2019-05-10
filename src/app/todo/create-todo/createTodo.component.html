@@ -12,10 +12,12 @@
     <button id="addTodo" class="btn btn-info" (click)="addTodo()">Add TODO</button>
     <button id="markAllAsDone" class="btn btn-success" (click)="getCheckedTodoList()" >Mark all as done</button>
     <button id="fetchTodosFromServer" class="btn btn-primary" (click)="fetchTodoListFromServer()" >Fetch Todo</button>
+    
+    <button class="btn btn-warning" (click)="fetchTodoListFromServerAgain()">Same Functionality as Fetch Todo button</button>
   </div>
   
   <hr>
-  <pending-list-todo [newTodo]="newTodo" [newPendingList]="newPendingTodoListFromServer" [stars]="stars"></pending-list-todo>
+  <pending-list-todo [newTodo]="newTodo" [newPendingList]="newPendingTodoListFromServer" [stars]="stars" [newTodosInputFromServer]="newTodosFromServer"></pending-list-todo>
   <div class="todo-footer">
       <strong><span class="count-todos"></span></strong> Items Left
   </div>
