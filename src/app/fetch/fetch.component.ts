@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PostDataService } from '../services/postdata.service';
 
 @Component({
   selector: 'app-fetch',
@@ -8,7 +9,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class FetchComponent implements OnInit {
   nameList: any;
-  constructor(private _activatedRoute: ActivatedRoute, private _router: Router) { }
+  user:any = {
+    userid: '',
+    title: '',
+    body: ''
+  };
+  constructor(
+    private _activatedRoute: ActivatedRoute,
+    private _router: Router,
+    private _postDataService: PostDataService 
+  ) { }
 
   ngOnInit() {
     this._activatedRoute.data.subscribe(xyz => {
@@ -21,6 +31,10 @@ export class FetchComponent implements OnInit {
   }
   goToPipes() {
     this._router.navigateByUrl("pipes");
+  }
+  sendData() {
+    console.log(this.user);
+    this._postDataService.saveData(this.user).subscribe(response => console.log(response))
   }
 
 }

@@ -19,6 +19,7 @@ import { PowerPipe } from './power.pipe';
 import { ShowEvenIndexPipe } from './even-index.pipe';
 import { FetchComponent } from './fetch/fetch.component';
 import { FetchResolveService } from './services/fetch.resolve.service';
+import { PostDataService } from './services/postdata.service';
 
 const routes: Routes = [{
   path: '',
@@ -69,7 +70,8 @@ const routes: Routes = [{
   ],
   providers: [
     TodoService,
-    FetchResolveService
+    FetchResolveService,
+    PostDataService
   ],
   bootstrap:    [ AppComponent ]
 })

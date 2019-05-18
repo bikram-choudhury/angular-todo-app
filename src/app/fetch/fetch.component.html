@@ -7,3 +7,22 @@
 </ul>
 
 <button (click)="goToPipes()">Go To Pipes</button>
+<br /><br /><br /><br />
+<fieldset>
+  <h3>Post Request</h3>
+  <form>
+    <div class="row">
+      <label for="UserId">User Id: </label>
+      <input type="text" [(ngModel)]="user.userid" name="id" />
+    </div>
+    <div class="row">
+      <label for="Title">Title: </label>
+      <input type="text" [(ngModel)]="user.title" name="title" />
+    </div>
+    <div class="row">
+      <label for="Body">Body: </label>
+      <input type="text" [(ngModel)]="user.body" name="body" />
+    </div>
+    <button type="button" (click)="sendData()">Send Data</button>
+  </form>
+</fieldset>
