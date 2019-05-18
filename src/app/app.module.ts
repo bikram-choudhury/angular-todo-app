@@ -32,7 +32,14 @@ const routes: Routes = [{
 },{
   path: 'fetch',
   component: FetchComponent,
-  resolve: {items: FetchResolveService}
+  resolve: {items: FetchResolveService},
+  data: {
+    name: 'Fetch route',
+    key: 'no-key'
+  }
+},{
+  path: 'fetch/:name/:key',
+  component: FetchComponent
 },{
   path: '**',
   redirectTo: ''

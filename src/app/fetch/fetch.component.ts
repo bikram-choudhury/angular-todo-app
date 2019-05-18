@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-fetch',
@@ -8,10 +8,19 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FetchComponent implements OnInit {
   nameList: any;
-  constructor(private _activatedRoute: ActivatedRoute) { }
+  constructor(private _activatedRoute: ActivatedRoute, private _router: Router) { }
 
   ngOnInit() {
-    this._activatedRoute.data.subscribe(xyz => this.nameList = xyz.items);
+    this._activatedRoute.data.subscribe(xyz => {
+      console.log(xyz);
+      this.nameList = xyz.items
+    });
+    this._activatedRoute.params.subscribe(xyz => {
+      console.log(xyz);
+    });
+  }
+  goToPipes() {
+    this._router.navigateByUrl("pipes");
   }
 
 }
