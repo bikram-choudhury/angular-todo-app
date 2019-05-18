@@ -1,0 +1,21 @@
+<section class="container">
+    <h5>Types & functions in typescript</h5>
+    {{a+b}}
+    <br /> Array: {{array}}
+    <br /> Object: {{stringify(obj)}} Object: {{stringify()}}
+    <!-- {{findDuplicates(findDuplicatesEs6)}} -->
+    <br />
+    <input type="{{inputType}}" [value]="inputValue" />
+    <input type="text" value="" readonly #staticInput />
+    <br />
+    <button (click)="handleClick($event)">Click me 1st</button>
+    <button (click)="handleClick($event, staticInput)">Click me 2nd</button>
+
+    <u>
+        <h3>Move Values from one input to another</h3>
+    </u>
+    <input placeholder="Input 1" #firstInput />
+    <input placeholder="Input 2" #secondInput/>
+    <br />
+    <button (click)="moveValues(firstInput, secondInput)">Move value from Input1 to Input2</button>
+</section>
